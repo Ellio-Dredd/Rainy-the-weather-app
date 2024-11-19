@@ -15,6 +15,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import org.w3c.dom.Text;
 
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
 
     public View date;
@@ -24,6 +26,8 @@ public class MainActivity extends AppCompatActivity {
     public Text temp;
     public Text condition;
     public RecyclerView rv_rainy;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,4 +48,7 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
     }
+
+
+
 }
