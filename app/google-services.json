@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "497872402459",
+    "project_id": "rainy-the-weather-app-5dc83",
+    "storage_bucket": "rainy-the-weather-app-5dc83.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:497872402459:android:9ac18b2522ae01b56620be",
+        "android_client_info": {
+          "package_name": "com.example.rainy"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBbnvS4FeDjbu650kkgoNCqf7yOPSXpjJ4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
