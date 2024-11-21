@@ -13,13 +13,13 @@
         android:theme="@style/Theme.Rainy"
         tools:targetApi="31">
         <activity
-            android:name=".Details"
+            android:name=".MainActivity"
             android:exported="false" />
         <activity
             android:name=".Home"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".Details"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
