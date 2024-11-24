@@ -30,6 +30,9 @@ public class WeatherAdapter extends RecyclerView.Adapter<WeatherAdapter.WeatherV
         holder.timeTextView.setText(weather.getFormattedTime());
         holder.tempTextView.setText(String.format("%s°C", weather.getTemperature()));
         holder.descriptionTextView.setText(weather.getDescription());
+        holder.dateView.setText(weather.getcaldate());
+        holder.dayNameView.setText(weather.dayName());
+
     }
 
     @Override
@@ -38,13 +41,15 @@ public class WeatherAdapter extends RecyclerView.Adapter<WeatherAdapter.WeatherV
     }
 
     static class WeatherViewHolder extends RecyclerView.ViewHolder {
-        TextView timeTextView, tempTextView, descriptionTextView;
+        TextView timeTextView, tempTextView, descriptionTextView,dateView,dayNameView;
 
         public WeatherViewHolder(@NonNull View itemView) {
             super(itemView);
             timeTextView = itemView.findViewById(R.id.timeTextView);
             tempTextView = itemView.findViewById(R.id.tempTextView);
             descriptionTextView = itemView.findViewById(R.id.descriptionTextView);
+            dateView =itemView.findViewById(R.id.dateView);
+            dayNameView =itemView.findViewById(R.id.dayNameView);
         }
     }
 }
