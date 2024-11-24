@@ -23,11 +23,15 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class Details extends AppCompatActivity {
 
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     ArrayList<dayForcastModel> dayForcastModels = new ArrayList<>() ;
+    private static final String API_KEY = "YOUR_API_KEY";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,7 +75,7 @@ public class Details extends AppCompatActivity {
     }
 
 
-// for database uses ---------------------------------------------------------
+ //for database uses ---------------------------------------------------------
 
    public void firbase() {
         Map<String, Object> city = new HashMap<>();
@@ -94,8 +98,8 @@ public class Details extends AppCompatActivity {
                    }
                });
 
+}
 
 
 
-   }
 }
