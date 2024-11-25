@@ -3,6 +3,7 @@ package com.example.rainy;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import androidx.appcompat.app.AppCompatActivity;
@@ -24,6 +25,9 @@ public class New extends AppCompatActivity {
     private WeatherAdapter weatherAdapter;
     private List<HourlyWeather> weatherList = new ArrayList<>();
 
+    double latitu ;
+    double longitu ;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,13 +39,23 @@ public class New extends AppCompatActivity {
         weatherAdapter = new WeatherAdapter(weatherList);
         recyclerView.setAdapter(weatherAdapter);
 
+        // Retrieve the data passed from MainActivity
+        Intent intent = getIntent();
+         latitu = intent.getDoubleExtra("lat",0);
+         longitu = intent.getDoubleExtra("longe",0);
+
+
+
         fetchWeatherData();
     }
+    Intent intent = getIntent();
 
     private void fetchWeatherData() {
+
+
         WeatherApiService apiService = RetrofitClient.getInstance().create(WeatherApiService.class);
         Call<WeatherResponse> call = apiService.getHourlyForecast(
-                37.7749, -122.4194, "2e97a68426a7854ceac53832f30380d1", "metric"
+                latitu, longitu, "2e97a68426a7854ceac53832f30380d1", "metric"
         );
 
         call.enqueue(new Callback<WeatherResponse>() {
