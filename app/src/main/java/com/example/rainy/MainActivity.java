@@ -243,67 +243,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    private void checkPermissions() {
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this,
-                    new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
-                    LOCATION_PERMISSION_REQUEST_CODE);
-        } else {
-            getLastLocation();
-        }
-    }
+   
+   
+  
 
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if (requestCode == LOCATION_PERMISSION_REQUEST_CODE) {
-            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                getLastLocation();
-            } else {
-                Toast.makeText(this, "Permission Denied", Toast.LENGTH_SHORT).show();
-            }
-        }
-    }
-
-    @SuppressLint("MissingPermission")
-    private void getLastLocation() {
-        fusedLocationProviderClient.getLastLocation()
-                .addOnCompleteListener(this, task -> {
-                    if (task.isSuccessful() && task.getResult() != null) {
-                        Location location = task.getResult();
-                        double latitude = location.getLatitude();
-                        double longitude = location.getLongitude();
-                        String city = getCityName(latitude, longitude);
-                        if (!city.equals("Not Found")) {
-                            getWeatherInfo(city);
-                        }
-                    } else {
-                        Toast.makeText(this, "Unable to get location", Toast.LENGTH_SHORT).show();
-                    }
-                });
-    }
-
-    private String getCityName(double latitude, double longitude) {
-        String cityName = "Not Found";
-        Geocoder gcd = new Geocoder(getBaseContext(), Locale.getDefault());
-        try {
-            List<Address> addresses = gcd.getFromLocation(latitude, longitude, 1);
-            for (Address adr : addresses) {
-                if (adr != null) {
-                    String city = adr.getLocality();
-                    if (city != null && !city.equals("")) {
-                        cityName = city;
-                    } else {
-                        Log.d("TAG", "CITY NOT FOUND");
-                        Toast.makeText(this, "User City Not Found!", Toast.LENGTH_SHORT).show();
-                    }
-                }
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return cityName;
-    }
+    
 
     private void getWeatherInfo(String city) {
         // Build geocode URL
