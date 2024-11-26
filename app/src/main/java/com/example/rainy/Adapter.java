@@ -36,11 +36,22 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
             RVModel model = RVModelArrayList.get(position);
 
             // Safely handle null string values using conditional checks
-            String temperature = model.getTemperature();
-            if (temperature != null) {
-                holder.temperature.setText(temperature + "°C");
+
+
+
+            String temperature_min = model.getTemp_min();
+            if (temperature_min != null) {
+                holder.min.setText("Min:"+temperature_min + "°C");
             } else {
-                holder.temperature.setText("No Data");
+                holder.min.setText("No Data");
+            }
+
+            String temperature_max = model.getTemp_max();
+            if (temperature_max != null) {
+                holder.max.setText("Max:"+temperature_max + "°C");
+            } else {
+                holder.max.setText("No Data");
+
             }
 
             String windSpeed = model.getWindSpeed();
@@ -57,19 +68,14 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
                 holder.time.setText("Time: N/A");
             }
 
-            // For condition icon, use Picasso to load the weather icon
-            String conditionIcon = model.getConditionIcon();
-            if (conditionIcon != null) {
-                Picasso.get().load("https://openweathermap.org/img/wn/" + conditionIcon + "@2x.png").into(holder.condition);
-            } else {
-                holder.condition.setImageResource(R.drawable.default_icon); // Use a default icon if null
-            }
+
         } else {
             // Set default values if the data model is null
-            holder.temperature.setText("No Data Available");
             holder.wind.setText("Wind Speed: N/A");
             holder.time.setText("Time: N/A");
-            holder.condition.setImageResource(R.drawable.default_icon); // Default icon
+            holder.min.setText("Temperature Min: N/A");
+            holder.max.setText("Temperature Max: N/A");
+
         }
     }
 
@@ -79,16 +85,19 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        private TextView wind, temperature, time;
-        private ImageView condition;
+
+        private TextView wind, time, min, max;
+
 
         // Constructor to initialize Views
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             wind = itemView.findViewById(R.id.windSpeed_rv);
-            temperature = itemView.findViewById(R.id.temperature_rv);
+
             time = itemView.findViewById(R.id.time_rv);
-            condition = itemView.findViewById(R.id.condition_rv);
+            min = itemView.findViewById(R.id.temp_min_rv);
+            max = itemView.findViewById(R.id.temp_max_rv);
+
         }
     }
 }
