@@ -18,7 +18,9 @@ import java.util.ArrayList;
 
 public class APIService {
     private static final String API_URL = "https://api.openweathermap.org/data/2.5/forecast";
-    private static final String API_KEY = "2e97a68426a7854ceac53832f30380d1";
+
+    private static final String API_KEY = "2e97a68426a7854ceac53832f30380d1"; // Replace with your OpenWeather API key
+
     private Context context;
     private RequestQueue requestQueue;
 
@@ -65,12 +67,14 @@ public class APIService {
             String temperature = item.getJSONObject("main").getString("temp");
             String windSpeed = item.getJSONObject("wind").getString("speed");
             String icon = item.getJSONArray("weather").getJSONObject(0).getString("icon");
+
             String min = item.getJSONObject("main").getString("temp_min");
             String max = item.getJSONObject("main").getString("temp_max");
 
 
 
             com.example.rainy.RVModel model = new com.example.rainy.RVModel(temperature,windSpeed,time,icon,min,max);
+
             weatherList.add(model);
         }
 

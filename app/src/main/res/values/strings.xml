@@ -1,3 +1,23 @@
 <resources>
     <string name="app_name">Rainy</string>
+
+    <string-array name="dayNames">
+        <item>DayOne</item>
+        <item>DayTwo</item>
+        <item>DayThree</item>
+        <item>DayFour</item>
+        <item>DayFive</item>
+
+    </string-array>
+
+    <string-array name="dayForcast">
+        <item>DayOne</item>
+        <item>DayTwo</item>
+        <item>DayThree</item>
+        <item>DayFour</item>
+        <item>DayFive</item>
+
+    </string-array>
+
+
 </resources>

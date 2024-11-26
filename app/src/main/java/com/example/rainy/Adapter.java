@@ -38,6 +38,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
             // Safely handle null string values using conditional checks
 
 
+
             String temperature_min = model.getTemp_min();
             if (temperature_min != null) {
                 holder.min.setText("Min:"+temperature_min + "°C");
@@ -50,6 +51,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
                 holder.max.setText("Max:"+temperature_max + "°C");
             } else {
                 holder.max.setText("No Data");
+
             }
 
             String windSpeed = model.getWindSpeed();
@@ -66,12 +68,14 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
                 holder.time.setText("Time: N/A");
             }
 
+
         } else {
             // Set default values if the data model is null
             holder.wind.setText("Wind Speed: N/A");
             holder.time.setText("Time: N/A");
             holder.min.setText("Temperature Min: N/A");
             holder.max.setText("Temperature Max: N/A");
+
         }
     }
 
@@ -81,12 +85,15 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
+
         private TextView wind, time, min, max;
+
 
         // Constructor to initialize Views
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             wind = itemView.findViewById(R.id.windSpeed_rv);
+
             time = itemView.findViewById(R.id.time_rv);
             min = itemView.findViewById(R.id.temp_min_rv);
             max = itemView.findViewById(R.id.temp_max_rv);
