@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+<<<<<<< Updated upstream
+=======
+    <!-- Internet permission -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+>>>>>>> Stashed changes
 
     <application
         android:allowBackup="true"
@@ -13,8 +22,19 @@
         android:theme="@style/Theme.Rainy"
         tools:targetApi="31">
         <activity
+<<<<<<< Updated upstream
             android:name=".Home"
             android:exported="false" />
+=======
+            android:name=".item_weather"
+            android:exported="false" />
+
+
+        <activity
+            android:name=".New"
+            android:exported="false" />
+
+>>>>>>> Stashed changes
         <activity
             android:name=".MainActivity"
             android:exported="true">

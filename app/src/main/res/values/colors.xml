@@ -2,4 +2,12 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+<<<<<<< Updated upstream
+=======
+
+
+    <color name="lightGray">#D2C9C9</color>
+    <color name="G_gray">#836a65</color>
+    <color name="black_shade_1">#3d3b3b</color>
+>>>>>>> Stashed changes
 </resources>
